@@ -49,11 +49,11 @@ public class iOSAuthentification
         }
         var error: NSError?
 
-print("called canEvaluatePolicy")
+//print("called canEvaluatePolicy")
         // Face ID, Touch IDが利用できるデバイスか確認する
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         {
-print("called evaluatePolicy")
+//print("called evaluatePolicy")
             // Face ID, Touch IDが利用できる場合は認証用ダイアログを表示
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: description,
                 reply:
@@ -65,13 +65,11 @@ print("called evaluatePolicy")
                         switch context.biometryType
                         {
                         case .faceID:
-                            // Face IDが利用出来る
                             authCallbackDelegate?(1)
-print("★★★★★★ [FACEID]")
+//print("★★★★★★ [FACEID]")
                             break
                         case .touchID:
-                            // Touch IDが利用できる
-print("★★★★★★ [TOUCHID]")
+//print("★★★★★★ [TOUCHID]")
                             authCallbackDelegate?(1)
                             break
                         case .none:
@@ -86,7 +84,7 @@ print("★★★★★★ [TOUCHID]")
                     else
                     {
                         // 認証失敗
-print("★★★★★★ [FAILED]")
+//print("★★★★★★ [FAILED]")
                         authCallbackDelegate?(0)
                     }
                 }
@@ -95,7 +93,7 @@ print("★★★★★★ [FAILED]")
         else
         {
             // Face ID, Touch IDが利用出来ない
-print("★★★★★★ [CANNOT USE BIO]")
+//print("★★★★★★ [CANNOT USE BIO]")
             authCallbackDelegate?(-1)
         }
     }

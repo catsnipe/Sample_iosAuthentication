@@ -7,14 +7,8 @@ public class iOSAuthentification : MonoBehaviour
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     delegate void CallbackDelegate([MarshalAs(UnmanagedType.I4)] Int32 num);
     
-    [DllImport("__Internal", EntryPoint = "registerCanAuthCallback")]
-    static extern void RegisterCanAuthCallback([MarshalAs(UnmanagedType.FunctionPtr)] CallbackDelegate callback);
-
     [DllImport("__Internal", EntryPoint = "registerAuthCallback")]
     static extern void RegisterAuthCallback([MarshalAs(UnmanagedType.FunctionPtr)] CallbackDelegate callback);
-
-    [DllImport("__Internal", EntryPoint = "canAuthentification")]
-    static extern long CanAuthentification();
 
     [DllImport("__Internal", EntryPoint = "authentification")]
     static extern long Authentification(int languageNo);
