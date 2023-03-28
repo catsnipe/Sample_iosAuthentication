@@ -1,2 +1,2 @@
 # Sample_iosAuthentification
-[unity] Perform TouchID and FaceID on iOS devices
+Running TouchID and FaceID on iOS devices with unity.
