@@ -3,7 +3,7 @@ import LocalAuthentication
 
 public typealias CallbackDelegate = @convention(c) (Int32) -> Void
 
-public class iOSAuthentification
+public class iOSAuthentication
 {
     static private var canAuthCallbackDelegate: CallbackDelegate? = nil;
     static private var authCallbackDelegate: CallbackDelegate? = nil;
@@ -18,7 +18,7 @@ public class iOSAuthentification
         authCallbackDelegate = delegate
     }
 
-    public static func canAuthentification()
+    public static func canAuthentication()
     {
         let context = LAContext()
         var error: NSError?
@@ -34,7 +34,7 @@ public class iOSAuthentification
         }
     }
 
-    public static func authentification(languageNo: Int)
+    public static func authentication(languageNo: Int)
     {
         var description: String = "Sign-in"
         let context = LAContext()
@@ -102,23 +102,23 @@ public class iOSAuthentification
 @_cdecl("registerCanAuthCallback")
 public func registerCanAuthCallback(_ delegate: @escaping CallbackDelegate)
 {
-    return iOSAuthentification.registerCanAuthCallback(delegate)
+    return iOSAuthentication.registerCanAuthCallback(delegate)
 }
 
 @_cdecl("registerAuthCallback")
 public func registerAuthCallback(_ delegate: @escaping CallbackDelegate)
 {
-    return iOSAuthentification.registerAuthCallback(delegate)
+    return iOSAuthentication.registerAuthCallback(delegate)
 }
 
-@_cdecl("canAuthentification")
-public func canAuthentification()
+@_cdecl("canAuthentication")
+public func canAuthentication()
 {
-    return iOSAuthentification.canAuthentification()
+    return iOSAuthentication.canAuthentication()
 }
 
-@_cdecl("authentification")
-public func authentification(_ languageNo: Int)
+@_cdecl("authentication")
+public func authentication(_ languageNo: Int)
 {
-    return iOSAuthentification.authentification(languageNo: languageNo)
+    return iOSAuthentication.authentication(languageNo: languageNo)
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using System;
 
-public class iOSAuthentification : MonoBehaviour
+public class iOSAuthentication : MonoBehaviour
 {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     delegate void CallbackDelegate([MarshalAs(UnmanagedType.I4)] Int32 num);
@@ -10,8 +10,8 @@ public class iOSAuthentification : MonoBehaviour
     [DllImport("__Internal", EntryPoint = "registerAuthCallback")]
     static extern void RegisterAuthCallback([MarshalAs(UnmanagedType.FunctionPtr)] CallbackDelegate callback);
 
-    [DllImport("__Internal", EntryPoint = "authentification")]
-    static extern long Authentification(int languageNo);
+    [DllImport("__Internal", EntryPoint = "authentication")]
+    static extern long Authentication(int languageNo);
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class iOSAuthentification : MonoBehaviour
 
     public void onPressButton()
     {
-        Authentification(0);
+        Authentication(0);
     }
 
     [AOT.MonoPInvokeCallbackAttribute(typeof(CallbackDelegate))]
